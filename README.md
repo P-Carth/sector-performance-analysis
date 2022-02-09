@@ -84,6 +84,7 @@
 5. Restart and run all cells on main.ipynb
 6. Restart and run all cells on dashboard.ipynb
 7. Interact with dashboard to interpret analyses of tickers by asset class
+![](dash.gif)
 
 ### For Additional Enhancements & Extrapolation to Other `STOCK/BOND` Tickers
 
