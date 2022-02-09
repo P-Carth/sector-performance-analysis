@@ -77,18 +77,30 @@
 ## Instructions for Following Along
 1. The following dependencies are required: pyvizenv, sql, postgres
 <p align='left'> <img src="https://github.com/P-Carth/sector-performance-analysis/blob/main/Screenshots/Screen%20Shot%202022-02-09%20at%203.39.54%20PM.png?raw=true" width="500"/> </P>
-2. Create a new postgres database called `sector_analysis_performance`
-3. set postgres password to `password`
-4. Restart and run all cells on main.ipynb
-5. Restart and run all cells on dashboard.ipynb
-6. Interact with dashboard to interpret analyses of tickers by asset class
 
-### For Additional Enhancements & Extrapolation to Other Tickers
+2. Download the `sector-performance-analysis` repo
+3. Create a new postgres database called `sector_analysis_performance`
+4. set postgres password to `password`
+5. Restart and run all cells on main.ipynb
+6. Restart and run all cells on dashboard.ipynb
+7. Interact with dashboard to interpret analyses of tickers by asset class
 
-1. Navigate to the `main.ipynb` file
-2. If the desired ticker is a `stock or bond` locate the following code 
+### For Additional Enhancements & Extrapolation to Other `STOCK/BOND` Tickers
+
+1. Navigate to the following snippet in the `main.ipynb` file
 <p align='left'> <img src="https://github.com/P-Carth/sector-performance-analysis/blob/main/Screenshots/Screen%20Shot%202022-02-09%20at%204.02.33%20PM.png?raw=true" width="500"/> </P>
-3. If the desired ticker is a `crypto` and is listed on binance locate the following code
 
+2. Set desired start and end dates
+3. Replace stock_tickers with any single stock ticker or list of stock tickers
+4. `Restart and Run` all cells
+5. Navigate to dashboard `Restart and Run` all cells
+
+
+### For Additional Enhancements & Extrapolation to Other `CRYPTO` Tickers
+* *Note* This will only work if the crypto of interest is listed on Binance
+1. Navigate to the following snippet in the `main.ipynb` file
 <p align='left'> <img src="https://github.com/P-Carth/sector-performance-analysis/blob/main/Screenshots/Screen%20Shot%202022-02-09%20at%204.10.35%20PM.png?raw=true" width="500"/> </P>
-4. 
+
+2. Replace `BTCUSDT` with desired crypto ticker and specify corresponding ticker for dataframe
+3. `Restart and Run` all cells
+4. Navigate to dashboard `Restart and Run` all cells
