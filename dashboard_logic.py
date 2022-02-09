@@ -313,23 +313,23 @@ def stock_prices(ticker):
     df = pd.DataFrame(stock_ticker_close_df[ticker])
     df['50 SMA'] = df.rolling(50).mean()
     df['200 SMA'] = df[ticker].rolling(200).mean()
-    return df.hvplot(ylabel = "Price USD",logy=True, height = 500, width = 1200, shared_axes = False)
+    return df.hvplot(title = 'Stock Close Prices with 50 and 200 SMA', ylabel = "Price USD",logy=True, height = 500, width = 1200, shared_axes = False)
 
 def stock_interact_return():
     return interact(stock_prices, ticker = columns_stocks)
 
 
 def stock_ticker_close_prices():
-    return stock_ticker_close_df_1.hvplot(height = 500, width = 1200, shared_axes = False)
+    return stock_ticker_close_df_1.hvplot(title = 'Stock Close Prices', ylabel = "Price USD", height = 500, width = 1200, shared_axes = False)
 
 def stock_ticker_daily_returns():
-    return stock_daily_returns.hvplot(label = 'Daily Returns of Stocks', ylabel = 'Daily Return',height = 500, width = 1200, shared_axes = False)
+    return stock_daily_returns.hvplot(label = 'Daily Returns of Stocks', ylabel = 'Daily Return', height = 500, width = 1200, shared_axes = False)
 
 def stock_ticker_cumulative_returns():
-    return stock_cumulative_returns.hvplot(height = 500, width = 1200, shared_axes = False)
+    return stock_cumulative_returns.hvplot(title = 'Stock Cumulative Returns', ylabel = '% Return', height = 500, width = 1200, shared_axes = False)
 
 def stock_ticker_rolling_std():
-    return stock_daily_returns_1.rolling(21).std().hvplot(label = "Rolling 21 Day std of All Tickers", ylabel = "Standard Deviation",height = 500, width = 1200, shared_axes = False)
+    return stock_daily_returns_1.rolling(21).std().hvplot(label = "Rolling 21 Day STD of All Tickers", ylabel = "Standard Deviation",height = 500, width = 1200, shared_axes = False)
 
 def stock_ticker_corr():    
     fig = plt.figure()
@@ -352,22 +352,22 @@ def bond_prices(ticker):
     df = pd.DataFrame(bond_ticker_close_df[ticker])
     df['50 SMA'] = df.rolling(50).mean()
     df['200 SMA'] = df[ticker].rolling(200).mean()
-    return df.hvplot(ylabel = "Price USD",logy=True, height = 500, width = 1200, shared_axes = False)
+    return df.hvplot(title = 'Bond Close Prices with 50 and 200 SMA', ylabel = "Price USD",logy=True, height = 500, width = 1200, shared_axes = False)
 
 def bond_interact_return():
     return interact(bond_prices, ticker = columns_bonds)
 
 def bond_ticker_close_prices():
-    return bond_ticker_close_df_1.hvplot(height = 500, width = 1200, shared_axes = False)
+    return bond_ticker_close_df_1.hvplot(title = 'Bond Close Prices', ylabel = "Price USD", height = 500, width = 1200, shared_axes = False)
 
 def bond_ticker_daily_returns():
     return bond_daily_returns.hvplot(label = 'Daily Returns of Bonds', ylabel = 'Daily Return',height = 500, width = 1200, shared_axes = False)
 
 def bond_ticker_cumulative_returns():
-    return bond_cumulative_returns.hvplot(height = 500, width = 1200, shared_axes = False)
+    return bond_cumulative_returns.hvplot(title = 'Bond Cumulative Returns', ylabel = '% Return', height = 500, width = 1200, shared_axes = False)
 
 def bond_ticker_rolling_std():
-    return bond_daily_returns_1.rolling(21).std().hvplot(label = "Rolling 21 Day std of All Tickers", ylabel = "Standard Deviation",height = 500, width = 1200, shared_axes = False)
+    return bond_daily_returns_1.rolling(21).std().hvplot(label = "Rolling 21 Day STD of All Tickers", ylabel = "Standard Deviation",height = 500, width = 1200, shared_axes = False)
 
 def bond_ticker_corr():
     fig = plt.figure()
@@ -389,19 +389,19 @@ def crypto_prices(ticker):
     df = pd.DataFrame(crypto_ticker_close_df[ticker])
     df['50 SMA'] = df.rolling(50).mean()
     df['200 SMA'] = df[ticker].rolling(200).mean()
-    return df.hvplot(logy=True, height = 500, width = 1200,shared_axes = False)
+    return df.hvplot(title = 'Crypto Close Prices with 50 and 200 SMA', logy=True, height = 500, width = 1200,shared_axes = False)
 
 def crypto_interact_return():
     return interact(crypto_prices, ticker = columns_cryptos)
 
 def crypto_ticker_close_prices():
-    return crypto_ticker_close_df_1.hvplot(height = 500, width = 1200, shared_axes = False)
+    return crypto_ticker_close_df_1.hvplot(title = 'Crypto Close Prices', ylabel = 'Price USD', height = 500, width = 1200, shared_axes = False)
 
 def crypto_ticker_daily_returns():
     return crypto_daily_returns.hvplot(label = 'Daily Returns of Cryptos', ylabel = 'Daily Return',height = 500, width = 1200, shared_axes = False)
 
 def crypto_ticker_cumulative_returns():
-    return crypto_cumulative_returns.hvplot(height = 500, width = 1200, shared_axes = False)
+    return crypto_cumulative_returns.hvplot(title = 'Crypto Cumulative Returns', ylabel = '% Return', height = 500, width = 1200, shared_axes = False)
 
 def crypto_ticker_rolling_std():
     return crypto_daily_returns_1.rolling(21).std().hvplot(label = "Rolling 21 Day std of All Tickers", ylabel = "Standard Deviation",height = 500, width = 1200, shared_axes = False)
@@ -420,13 +420,13 @@ def crypto_ticker_corr():
 
 
 def combined_daily_returns():
-    return stocks_daily_returns_mean.hvplot(label = 'Mean Daily Returns of Stocks', ylabel = 'Mean Daily Return %', height = 500, width = 1000, color = 'r', shared_axes = False)* bonds_daily_returns_mean.hvplot(label = 'Mean Daily Returns of Bonds', ylabel = 'Mean Daily Return %', height = 500, width = 1000, color = 'b', shared_axes = False) * cryptos_daily_returns_mean.hvplot(label = 'Mean Daily Returns of Cryptos', ylabel = 'Mean Daily Return %', height = 500, width = 1000, color = 'g', shared_axes = False) 
+    return stocks_daily_returns_mean.hvplot(title = 'Daily Returns of All Asset Classes', label = 'Mean Daily Returns of Stocks', ylabel = 'Mean Daily Return %', height = 500, width = 1000, color = 'r', shared_axes = False)* bonds_daily_returns_mean.hvplot(label = 'Mean Daily Returns of Bonds', ylabel = 'Mean Daily Return %', height = 500, width = 1000, color = 'b', shared_axes = False) * cryptos_daily_returns_mean.hvplot(label = 'Mean Daily Returns of Cryptos', ylabel = 'Mean Daily Return %', height = 500, width = 1000, color = 'g', shared_axes = False) 
 
 def combined_cumulative_returns():
-    return stocks_cumulative_returns_mean.hvplot(label = 'Mean Cumulative Returns of Stocks', ylabel = 'Mean Cumulative Return %', height = 500, width = 1000, color = 'r', shared_axes = False)* bonds_cumulative_returns_mean.hvplot(label = 'Mean Cumulative Returns of Bonds', ylabel = 'Mean Cumulative Return %', height = 500, width = 1000, color = 'b', shared_axes = False) * cryptos_cumulative_returns_mean.hvplot(label = 'Mean Cumulative Returns of Cryptos', ylabel = 'Mean Cumulative Return %', height = 500, width = 1000, color = 'g', shared_axes = False)
+    return stocks_cumulative_returns_mean.hvplot(title = 'Cumulative Returns of All Asset Classes', label = 'Mean Cumulative Returns of Stocks', ylabel = 'Mean Cumulative Return %', height = 500, width = 1000, color = 'r', shared_axes = False)* bonds_cumulative_returns_mean.hvplot(label = 'Mean Cumulative Returns of Bonds', ylabel = 'Mean Cumulative Return %', height = 500, width = 1000, color = 'b', shared_axes = False) * cryptos_cumulative_returns_mean.hvplot(label = 'Mean Cumulative Returns of Cryptos', ylabel = 'Mean Cumulative Return %', height = 500, width = 1000, color = 'g', shared_axes = False)
 
 def combined_rolling_std():
-    return stocks_daily_returns_mean_std_roll.hvplot(label = 'Rolling STD of Stock Asset Class', ylabel = 'Mean STD', height = 500, width = 1000, color = 'r', shared_axes = False, ylim = (-.02,.14))*bonds_daily_returns_mean_std_roll.hvplot(label = 'Rolling STD of Bond Asset Class', ylabel = 'Mean STD', height = 500, width = 1000, color = 'b',  ylim = (-.02,.14))*cryptos_daily_returns_mean_std_roll.hvplot(label = 'Rolling STD of Crypto Asset Class', ylabel = 'Mean STD', height = 500, width = 1000, color = 'g', ylim = (-.02,.14))
+    return stocks_daily_returns_mean_std_roll.hvplot(title = '21 Day Rolling STD of Each Asset Class', label = 'Rolling STD of Stock Asset Class', ylabel = 'Mean STD', height = 500, width = 1000, color = 'r', shared_axes = False, ylim = (-.02,.14))*bonds_daily_returns_mean_std_roll.hvplot(label = 'Rolling STD of Bond Asset Class', ylabel = 'Mean STD', height = 500, width = 1000, color = 'b',  ylim = (-.02,.14))*cryptos_daily_returns_mean_std_roll.hvplot(label = 'Rolling STD of Crypto Asset Class', ylabel = 'Mean STD', height = 500, width = 1000, color = 'g', ylim = (-.02,.14))
 
 
 # In[55]:
