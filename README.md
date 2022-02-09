@@ -24,8 +24,8 @@
 7. Utilize SQL to write the cleaned data frames into postgres as tables to easily be retrieved later in the dashboard file
 
 *Transformation:*
-1. Transform `close` price into returns to perform in-depth comparative analyses
-2. Plot 50-day and 200-day rolling averages of close price with dropdown selector for all tickers
+1. Plot 50-day and 200-day rolling averages of close price with dropdown selector for all tickers
+2. Found daily and cumulative returns to accurately compare data by transforming the close prices
 3. Plot rolling standard deviation of all tickers 
 4. Plot correlation of returns within same asset classes
       * Return values to determine interdependence 
@@ -74,3 +74,21 @@
 * Another enhancement we would like to implement would be to exchange our fixed ticker data with an input function to easily input any ticker of interest
 
 
+## Instructions for Following Along
+1. The following dependencies are required: pyvizenv, sql, postgres
+<p align='left'> <img src="https://github.com/P-Carth/sector-performance-analysis/blob/main/Screenshots/Screen%20Shot%202022-02-09%20at%203.39.54%20PM.png?raw=true" width="500"/> </P>
+2. Create a new postgres database called `sector_analysis_performance`
+3. set postgres password to `password`
+4. Restart and run all cells on main.ipynb
+5. Restart and run all cells on dashboard.ipynb
+6. Interact with dashboard to interpret analyses of tickers by asset class
+
+### For Additional Enhancements & Extrapolation to Other Tickers
+
+1. Navigate to the `main.ipynb` file
+2. If the desired ticker is a `stock or bond` locate the following code 
+<p align='left'> <img src="https://github.com/P-Carth/sector-performance-analysis/blob/main/Screenshots/Screen%20Shot%202022-02-09%20at%204.02.33%20PM.png?raw=true" width="500"/> </P>
+3. If the desired ticker is a `crypto` and is listed on binance locate the following code
+
+<p align='left'> <img src="https://github.com/P-Carth/sector-performance-analysis/blob/main/Screenshots/Screen%20Shot%202022-02-09%20at%204.10.35%20PM.png?raw=true" width="500"/> </P>
+4. 
