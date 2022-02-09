@@ -19,7 +19,7 @@ from sqlalchemy import create_engine
 engine = create_engine('postgresql://postgres:password@localhost:5432/sector_analysis_performance')
 from panel.interact import interact
 from panel import widgets
-import seaborn as steve
+import seaborn as sns
 import panel as pn
 
 
@@ -331,9 +331,12 @@ def stock_ticker_cumulative_returns():
 def stock_ticker_rolling_std():
     return stock_daily_returns_1.rolling(21).std().hvplot(label = "Rolling 21 Day std of All Tickers", ylabel = "Standard Deviation",height = 500, width = 1200, shared_axes = False)
 
-def stock_ticker_corr():
-    steve.set(rc = {'figure.figsize':(15,8)})
-    return steve.heatmap(stock_daily_returns_2.corr(), vmin=-1, vmax=1, annot = True, fmt='.2g')
+def stock_ticker_corr():    
+    fig = plt.figure()
+    sns.set(rc = {'figure.figsize':(15,8)})
+    plot_ = sns.heatmap(stock_daily_returns_2.corr(), vmin=-1, vmax=1, annot = True, fmt='.2g')
+    plt.close(fig)
+    return pn.pane.Matplotlib(fig)
 
 
 # ### Bond Functions
@@ -367,9 +370,11 @@ def bond_ticker_rolling_std():
     return bond_daily_returns_1.rolling(21).std().hvplot(label = "Rolling 21 Day std of All Tickers", ylabel = "Standard Deviation",height = 500, width = 1200, shared_axes = False)
 
 def bond_ticker_corr():
-    steve.set(rc = {'figure.figsize':(15,8)})
-    return steve.heatmap(bond_daily_returns_2.corr(), vmin=-1, vmax=1, annot = True, fmt='.2g')
-
+    fig = plt.figure()
+    sns.set(rc = {'figure.figsize':(15,8)})
+    plot_ = sns.heatmap(bond_daily_returns_2.corr(), vmin=-1, vmax=1, annot = True, fmt='.2g')
+    plt.close(fig)
+    return pn.pane.Matplotlib(fig)
 
 # ### Crypto Functions
 
@@ -402,8 +407,11 @@ def crypto_ticker_rolling_std():
     return crypto_daily_returns_1.rolling(21).std().hvplot(label = "Rolling 21 Day std of All Tickers", ylabel = "Standard Deviation",height = 500, width = 1200, shared_axes = False)
 
 def crypto_ticker_corr():
-    steve.set(rc = {'figure.figsize':(15,8)})
-    return steve.heatmap(crypto_daily_returns_2.corr(), vmin=-1, vmax=1, annot = True, fmt='.2g')
+    fig = plt.figure()
+    sns.set(rc = {'figure.figsize':(15,8)})
+    plot_ = sns.heatmap(crypto_daily_returns_2.corr(), vmin=-1, vmax=1, annot = True, fmt='.2g')
+    plt.close(fig)
+    return pn.pane.Matplotlib(fig)
 
 
 # ### Combined Functions
