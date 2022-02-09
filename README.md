@@ -71,5 +71,6 @@
 * Git Branching
 * Multi-Level index on Stocks and Bonds
 * Could use better formatting for the visualiziation of our daily returns. With more time we would create a bar chart to show the variance of each ticker rather than a line graph.
+* Another enhancement we would like to implement would be to exchange our fixed ticker data with an input function to easily input any ticker of interest
 
 
