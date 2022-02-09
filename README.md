@@ -11,10 +11,10 @@
 #### Our first step was to create a pseudo-code
 1. Import libraries
 2. Load APIs
-    * Binance API
-    * Alpaca API
-3. Create three dataframes: Crypto, Stocks, Bonds
-4. Clean the dataframes removing NAs and all columns besides date and close price
+    * `Binance API`
+    * `Alpaca API`
+3. Create three dataframes: `Crypto`, `Stocks`, `Bonds`
+4. Clean the dataframes removing NA and all columns besides `date` and `close` price
 5. Integrate SQL by sending the cleaned data to postgres to easily be retrieved later
 
 
