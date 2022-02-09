@@ -70,5 +70,7 @@
 * Since we were limited to free APIs we were capped with a call of no more than 1000 rows of data per ticker. This lead to an issue we encountered while comparing data from cryptocurrencies which trade 7 days/week and stock/bonds which trade 5 days/week. As a result we only have 638 rows shared among all three asset classes: Crypto, Bonds, and Stocks. However, this is still a large enough dataset to use in our analysis.
 * Git Branching
 * Multi-Level index on Stocks and Bonds
+* Could use better formatting for the visualiziation of our daily returns. With more time we would create a bar chart to show the variance of each ticker rather than a line graph.
+* Another enhancement we would like to implement would be to exchange our fixed ticker data with an input function to easily input any ticker of interest
 
 
