@@ -2,29 +2,50 @@
 
 ## <p align='center'> <img src="https://s27389.pcdn.co/wp-content/uploads/2021/07/how-smarter-data-analysis-can-transform-financial-planning-1013x440.jpeg.webp" height="300"/> </P>
 
-***
+#### Contributors: Joseph Hagemann, Emilio Cubero, Jorge Betancourt, Preston Kirschner
 
 ## Scope
-#### The goal of this project was to utilize APIs to pull ticker data from stocks, bonds, and cryptos to so we could analyze their performance over the last thousand trading days. After pulling the data from the APIs, it would then be cleaned up using pandas to only keep track of the 'close' data and then after stored using SQL. From there the data can then be pulled to analyze the returns over the past thousand trading days.
+#### The goal of this project is to utilize APIs to pull ticker data from stocks, bonds, and cryptocurrencies to analyze their performance over the last thousand trading days. After pulling the data from the APIs, it would then be cleaned up using pandas to only keep track of the `close` prices and then stored them in a database using SQL. From there the data can then be pulled to analyze the returns over the past thousand trading days.
+
+### Application
+1. Used for our own comparative analytics within and across asset classes
+2. Analysis notebook and corresponding dashboard can be used as a tool for any future analysis, as someone can pass in their own tickers related to each asset class
+
+## Steps
+*Data extraction, cleaning, storage:*
+1. Draft Project Proposal and Excel Dashboard Roadmap
+2. Import libraries and dependencies
+3. Utilize API calls to create data frames for all tickers within each asset class
+      * `Alpaca API`
+      * `Binance API`
+4. Clean the dataframes 
+5. Remove Timestamp from Index
+6. Drop all columns except close price for each ticker
+7. Utilize SQL to write the cleaned data frames into postgres as tables to easily be retrieved later in the dashboard file
+
+*Transformation:*
+1. Transform `close` price into returns to perform in-depth comparative analyses
+2. Plot 50-day and 200-day rolling averages of close price with dropdown selector for all tickers
+3. Plot rolling standard deviation of all tickers 
+4. Plot correlation of returns within same asset classes
+      * Return values to determine interdependence 
+      * Plot on heatmap using Seaborn
+
+*Dashboard:*
+1. Utilize SQL to read in stored close price data frames from postgres
+2. Copy/Paste transformations above
+3. Define functions to return desired visualizations 
 
 
-#### Our first step was to create a pseudo-code
-1. Import libraries
-2. Load APIs
-    * `Binance API`
-    * `Alpaca API`
-3. Create three dataframes: `Crypto`, `Stocks`, `Bonds`
-4. Clean the dataframes removing NA and all columns besides `date` and `close` price
-5. Integrate SQL by sending the cleaned data to postgres to easily be retrieved later
 
 
-
-#### The chosen stock market sectors and corresponding ETF tickers are:
+## Data Selected for Analysis
+#### The chosen *stock* market sectors and corresponding ETF tickers are:
 > - Energy = `XLE`
 > - Financial Services = `XLF`
 > - Real Estate = `XLRE`
 > - Technology = `XLK`
-> - Consumer Stables = `XLP`
+> - Consumer Staples = `XLP`
 > - Basic Materials = `XLB`
 > - Industrial = `XLI`
 > - Healthcare = `XLV`
@@ -32,15 +53,22 @@
 > - Consumer Discretionary = `XLY`
 > - Communication Services = `XLC`
 
-#### The chosen Bonds and corresponding tickers are:
+#### The chosen *bonds* and corresponding tickers are:
 > - iShares 3-7 Year Treasury Bond ETF - `IEI`
 > - iShares 7-10 Year Treasury Bond ETF - `IEF`
 > - iShares 10-20 Year Treasury Bond ETF - `TLH`
 > - iShares 20+ Year Treasury Bond ETF - `TLT`
 
-#### The chosen cryptocurrencies and corresponding tickers are:
+#### The chosen *cryptocurrencies* and corresponding tickers are:
 > - Bitcoin - `BTC` 
 > - Ethereum - `ETH`
 > - Binance Coin - `BNB` 
 > - Cardano - `ADA` 
 > - Ripple - `XRP`
+
+## Strengths & Limitations
+* Since we were limited to free APIs we were capped with a call of no more than 1000 rows of data per ticker. This lead to an issue we encountered while comparing data from cryptocurrencies which trade 7 days/week and stock/bonds which trade 5 days/week. As a result we only have 638 rows shared among all three asset classes: Crypto, Bonds, and Stocks. However, this is still a large enough dataset to use in our analysis.
+* Git Branching
+* Multi-Level index on Stocks and Bonds
+
+
