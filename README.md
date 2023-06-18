@@ -1,6 +1,8 @@
 # <p align='center'> SECTOR PERFORMANCE ANALYSIS </p>
 
-## <p align='center'> <img src="https://s27389.pcdn.co/wp-content/uploads/2021/07/how-smarter-data-analysis-can-transform-financial-planning-1013x440.jpeg.webp" height="300"/> </P>
+<p align='center'>
+  <img src="https://raw.githubusercontent.com/P-Carth/sector-performance-analysis/main/Screenshots/Data-Science-in-Stock-Trading.jpg" height="300"/>
+</p>
 
 #### Contributors: Joseph Hagemann, Emilio Cubero, Jorge Betancourt, Preston Kirschner
 
